@@ -854,9 +854,11 @@ function computeLastReadCfi() {
 }
 
 function constructDOMRect(rectJsonString) {
-    var rectJson = JSON.parse(rectJsonString);
-    return new DOMRect(rectJson.x, rectJson.y, rectJson.width, rectJson.height);
+var rectJson = JSON.parse(rectJsonString);
+var drect = {top:rectJson.y, right:rectJson.x+rectJson.width, bottom:rectJson.y+rectJson.height,left:rectJson.x};
+return drect;
 }
+
 
 /**
  * Gets the first partially or completely visible node in viewportRect
